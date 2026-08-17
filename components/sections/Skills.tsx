@@ -1,15 +1,15 @@
 "use client";
 import React, { useState } from "react";
 import {
-  GrayGridsLogo,
-  LineIconsLogo,
-  NextJsTemplatesLogo,
-  PimjoLogo,
-  StaticRunLogo,
-  TailAdminLogo,
-  TailgridsLogo,
-  UideckLogo,
-} from "./icons";
+    SiJavascript,
+    SiReact,
+    SiNextdotjs,
+    SiExpress,
+    SiNodedotjs,
+    SiRedis,
+    SiMongodb,
+    SiDocker,
+} from "../icons";
 
 // Wrapper for individual icons to give them the glassy container style and hover effects
 const IconWrapper = ({
@@ -51,13 +51,13 @@ const IconGrid = () => {
   const [hoveredId, setHoveredId] = useState<number | null>(null);
 
   const outerIcons = [
-    { id: 1, component: <TailAdminLogo /> },
-    { id: 2, component: <TailgridsLogo /> },
-    { id: 3, component: <UideckLogo /> },
-    { id: 4, component: <GrayGridsLogo /> },
-    { id: 5, component: <StaticRunLogo /> },
-    { id: 6, component: <NextJsTemplatesLogo /> },
-    { id: 7, component: <LineIconsLogo /> },
+    { id: 1, component: <SiReact size={28} color="#61DAFB" /> },
+    { id: 2, component: <SiNextdotjs size={28} color="#FFFFFF" /> },
+    { id: 3, component: <SiExpress size={28} color="#FFFFFF" /> },
+    { id: 4, component: <SiNodedotjs size={28} color="#339933" /> },
+    { id: 5, component: <SiRedis size={28} color="#DC382D" /> },
+    { id: 6, component: <SiMongodb size={28} color="#47A248" /> },
+    { id: 7, component: <SiDocker size={28} color="#2496ED" /> },
   ];
 
   // Constants for layout calculation
@@ -162,7 +162,7 @@ const IconGrid = () => {
             isHighlighted={true}
             animationDelay={0}
           >
-            <PimjoLogo />
+            <SiJavascript size={40} color="#F7DF1E" />
           </IconWrapper>
         </div>
 

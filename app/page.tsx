@@ -1,6 +1,6 @@
 import Navbar from "@/components/layout/Navbar";
 import Hero from "@/components/sections/Hero";
-
+import Skills from "@/components/sections/Skills";
 
 export default function Home() {
   return (
@@ -9,6 +9,7 @@ export default function Home() {
       <div className="max-w-7xl w-full">
         <Navbar/>
         <Hero/>
+        <Skills/>
       </div>
     </main>
   );
