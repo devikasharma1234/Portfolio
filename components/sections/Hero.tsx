@@ -1,221 +1,119 @@
-"use client";
-import React from "react";
-import Glow_button from "../ui/Glow_button";
-import ThreeDCarousel from "../ui/ThreeDCarousel";
+"use client"
+import React from 'react';
+import { FlipWords } from '../ui/FlipWords';
 
-
-// Self-contained SVG icon for the "Welcome" badge
-const DotIcon = () => (
-  <svg width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <circle cx="4" cy="4" r="4" fill="currentColor" />
-  </svg>
+// Helper component for social media links for cleaner code
+const SocialLink: React.FC<{ href: string; ariaLabel: string; children: React.ReactNode }> = ({ href, ariaLabel, children }) => (
+  <a
+    href={href}
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label={ariaLabel}
+    className="bg-gray-200 dark:bg-gray-700 p-3 rounded-full text-black dark:text-white hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors duration-300"
+  >
+    {children}
+  </a>
 );
 
-// The data for the code snippet
-const coderData = {
-  name: "Devika Sharma",
-  role: "Full Stack Developer",
-  experiance: "Fresher",
-  location: "Kurukshetra, Haryana",
-  skills: [
-    "React", "Next.js", "JavaScript", "TypeScript",
-    "TailwindCSS", "CSS", "Figma", "GitHub", "HTML",
-    "Astro", "Node.js", "Express", "MongoDB", "Firebase",
-    "Git",
-  ],
-};
-
-// The styled code window component
-const CoderProfileCard = () => {
+// Main Hero Component
+const HeroSection: React.FC = () => {
   return (
-    <div className="w-full mx-auto bg-linear-to-r from-zinc-100 to-zinc-200 dark:from-[#000000] dark:to-[#0a0d37] border-zinc-300 dark:border-[#1b2c68a0] relative rounded-lg border shadow-lg">
-      {/* Top gradient border element */}
-      <div className="flex flex-row">
-        <div className="h-0.5 w-full bg-linear-to-r from-transparent via-pink-500 to-violet-600"></div>
-        <div className="h-0.5 w-full bg-linear-to-r from-violet-600 to-transparent"></div>
-      </div>
-
-      {/* Window Header */}
-      <div className="px-4 lg:px-8 py-5 flex justify-between items-center bg-zinc-200 dark:bg-[#000000]">
-        <div className="flex flex-row space-x-2">
-          <div className="h-3 w-3 rounded-full bg-red-500"></div>
-          <div className="h-3 w-3 rounded-full bg-orange-400"></div>
-          <div className="h-3 w-3 rounded-full bg-green-400"></div>
-        </div>
-        <div className="text-xs text-zinc-600 dark:text-gray-400 font-mono">coder.js</div>
-      </div>
-
-      {/* Code Content Area */}
-      <div className="overflow-hidden border-t-2 border-zinc-300 dark:border-indigo-900 px-4 lg:px-8 py-4 lg:py-8 relative">
-        <div className="absolute -top-24 -left-24 w-56 h-56 bg-blue-600 rounded-full opacity-10 filter blur-3xl"></div>
-        <div className="absolute -bottom-24 -right-24 w-56 h-56 bg-pink-600 rounded-full opacity-10 filter blur-3xl"></div>
-
-        <div className="relative flex">
-          {/* Line Numbers */}
-          <div className="hidden md:flex flex-col items-end pr-4 text-zinc-600 dark:text-gray-500 font-mono text-xs">
-            {Array.from({ length: 12 }, (_, i) => (
-              <div key={i} className="leading-relaxed select-none opacity-70">{i + 1}</div>
-            ))}
+    <section className="relative font-sans overflow-hidden">
+      <div className="relative z-10 flex flex-col items-center text-center p-8 max-w-2xl mx-auto">
+        {/* Avatar Section */}
+        <div className="relative mb-8">
+          <div className="w-40 h-40 rounded-full bg-gradient-to-br from-gray-400 to-gray-600 dark:from-gray-500 dark:to-gray-700 p-1 shadow-lg dark:shadow-gray-800">
+            <img
+              src="https://i.pinimg.com/736x/49/3c/e7/493ce760bc067f2530d73365ace0d66c.jpg" // Updated image URL
+              alt="Rose's avatar"
+              className="w-full h-full rounded-full object-cover"
+            />
           </div>
+          <div className="absolute bottom-2 -right-2 text-4xl animate-wave">
+             <span>👋</span>
+          </div>
+        </div>
 
-          {/* Code Snippet */}
-          <code className="font-mono text-xs md:text-sm lg:text-base w-full">
-            <div>
-              <span className="mr-2 text-pink-500 dark:text-pink-400">const</span>
-              <span className="mr-2 text-violet-500 dark:text-violet-400">coder</span>
-              <span className="mr-2 text-pink-500 dark:text-pink-400">=</span>
-              <span className="text-zinc-600 dark:text-gray-400">{"{"}</span>
-            </div>
-            <div className="pl-6">
-              <span className="text-zinc-800 dark:text-white">name:</span>
-              <span className="text-zinc-600 dark:text-gray-400">&#39;</span>
-              <span className="text-green-600 dark:text-green-400">{coderData.name}</span>
-              <span className="text-zinc-600 dark:text-gray-400">&#39;,</span>
-            </div>
-            <div className="pl-6">
-              <span className="text-zinc-800 dark:text-white">role:</span>
-              <span className="text-zinc-600 dark:text-gray-400">&#39;</span>
-              <span className="text-green-600 dark:text-green-400">{coderData.role}</span>
-              <span className="text-zinc-600 dark:text-gray-400">&#39;,</span>
-            </div>
-            <div className="pl-6">
-              <span className="text-zinc-800 dark:text-white">experiance:</span>
-              <span className="text-zinc-600 dark:text-gray-400">&#39;</span>
-              <span className="text-green-600 dark:text-green-400">{coderData.experiance}</span>
-              <span className="text-zinc-600 dark:text-gray-400">&#39;,</span>
-            </div>
-            <div className="pl-6">
-              <span className="text-zinc-800 dark:text-white">location:</span>
-              <span className="text-zinc-600 dark:text-gray-400">&#39;</span>
-              <span className="text-green-600 dark:text-green-400">{coderData.location}</span>
-              <span className="text-zinc-600 dark:text-gray-400">&#39;,</span>
-            </div>
-            <div className="pl-6">
-              <span className="text-zinc-800 dark:text-white">skills:</span>
-              <span className="text-zinc-600 dark:text-gray-400">{"["}</span>
-              <div className="pl-6 flex flex-wrap">
-                {coderData.skills.map((skill, index) => (
-                  <span key={skill} className="mr-1">
-                    <span className="text-zinc-600 dark:text-gray-400">&#39;</span>
-                    <span className="text-cyan-600 dark:text-cyan-400">{skill}</span>
-                    <span className="text-zinc-600 dark:text-gray-400">&#39;</span>
-                    {index < coderData.skills.length - 1 && (
-                      <span className="text-zinc-600 dark:text-gray-400">, </span>
-                    )}
-                  </span>
-                ))}
-              </div>
-              <span className="text-zinc-600 dark:text-gray-400">{"],"}</span>
-            </div>
-            <div>
-              <span className="text-zinc-600 dark:text-gray-400">{"};"}</span>
-            </div>
-          </code>
+        {/* Text Content */}
+        <h1 className="text-4xl md:text-4xl text-black dark:text-white leading-tight">
+          Hi there! I&apos;m <span className="font-bold text-purple-500">Devika Sharma</span></h1>
+          <div className="text-3xl font-bold p-3">
+            <FlipWords
+              words={["A full-stack developer, always building",
+                 "Turning edge cases into clean logic",
+                  "An algorithmic thinker, builder",
+                  "Pixels on the front, precision underneath",
+                  "An ML enthusiast, chasing better models"]}
+              duration={3000}
+              className="text-orange-500 dark:text-orange-400 font-semibold"
+            />
+            {" "}
+          </div>
+          <p className='text-yellow-100 text-xl p-4'>From real-time collaborative tools to scalable web applications,
+             I try to bring ideas to life with code.</p>
+        
+
+        {/* Action Buttons */}
+        <div className="flex items-center gap-4 mt-12">
+          <a
+            href="mailto:example@email.com"
+            className="flex items-center gap-2 bg-black dark:bg-white text-white dark:text-black font-semibold py-3 px-6 rounded-full shadow-md hover:bg-gray-800 dark:hover:bg-gray-200 transition-all duration-300 transform hover:scale-105"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-mail"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            Contact me
+          </a>
+          <SocialLink href="https://linkedin.com" ariaLabel="LinkedIn Profile">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+          </SocialLink>
+          <SocialLink href="https://github.com" ariaLabel="GitHub Profile">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/></svg>
+          </SocialLink>
         </div>
       </div>
-
-      {/* Window Footer */}
-      <div className="px-4 lg:px-8 pb-4 mt-4 border-t border-zinc-300 dark:border-gray-800 pt-3 text-xs text-zinc-600 dark:text-gray-500 flex justify-between items-center">
-        <span>UTF-8</span>
-        <span>JavaScript</span>
-        <span>Ln 12, Col 2</span>
-      </div>
-    </div>
+    </section>
   );
 };
 
-// Main Hero section
-const Hero = () => {
-  return (
-    <div className="min-h-screen w-full relative flex items-center justify-center font-sans p-4 sm:p-6 lg:p-8">
-      {/* Light mode background */}
-      <div
-        className="absolute inset-0 z-0 dark:hidden"
-        style={{
-          background: "radial-gradient(125% 125% at 50% 100%, #ffffff 40%, #3b82f6 100%)",
-        }}
-      />
-      {/* Dark mode background */}
-      <div
-        className="absolute inset-0 z-0 hidden dark:block"
-        style={{
-          background: "radial-gradient(125% 125% at 50% 100%, #000000 40%, #010133 100%)",
-        }}
-      />
+// To make this a runnable app, we export a default App component
+export default function Hero() {
+  // We need to add the animation keyframes to the document's head
+  // as Tailwind doesn't support them directly in JIT mode for arbitrary values.
+  React.useEffect(() => {
+    const style = document.createElement('style');
+    style.innerHTML = `
+      @keyframes blob {
+        0% { transform: translate(0px, 0px) scale(1); }
+        33% { transform: translate(30px, -50px) scale(1.1); }
+        66% { transform: translate(-20px, 20px) scale(0.9); }
+        100% { transform: translate(0px, 0px) scale(1); }
+      }
+      @keyframes wave {
+        0%, 60%, 100% { transform: rotate(0deg); }
+        10%, 30% { transform: rotate(14deg); }
+        20% { transform: rotate(-8deg); }
+        40% { transform: rotate(-4deg); }
+        50% { transform: rotate(10deg); }
+      }
+      .animate-blob {
+        animation: blob 7s infinite;
+      }
+      .animation-delay-2000 {
+        animation-delay: 2s;
+      }
+      .animation-delay-4000 {
+        animation-delay: 4s;
+      }
+      .animate-wave {
+        transform-origin: 70% 70%;
+        display: inline-block;
+        animation: wave 2.5s infinite;
+      }
+    `;
+    document.head.appendChild(style);
+    return () => {
+      document.head.removeChild(style);
+    };
+  }, []);
 
-      <div className="container mx-auto max-w-7xl relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 xl:gap-16 items-center">
-          {/* Left Column: Text Content */}
-          <div className="flex flex-col gap-4 sm:gap-6 items-start text-left order-2 lg:order-1 animate-fade-in-up">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-3 h-3 rounded-full bg-green-500 animate-pulse"></div>
-              <span className="text-xs font-medium text-green-700 dark:text-green-400">Available for work</span>
-            </div>
-
-            <div className="relative">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-bold leading-tight text-gray-900 dark:text-white">
-                Hello <br />
-                I&apos;m{" "}
-                <span className="bg-linear-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 bg-clip-text text-transparent">
-                  Devika Sharma
-                </span>
-              </h1>
-            </div>
-
-            <div className="flex flex-wrap gap-2 sm:gap-3 my-2 sm:my-4">
-              <span className="px-3 sm:px-4 py-1 sm:py-2 bg-gray-900/80 dark:bg-white/10 border border-gray-700 dark:border-gray-600 rounded-full text-gray-200 dark:text-gray-300 text-sm sm:text-base backdrop-blur-sm hover:bg-gray-800 dark:hover:bg-white/20 transition-all duration-300 cursor-default">
-                Full Stack Developer
-              </span>
-              <span className="px-3 sm:px-4 py-1 sm:py-2 bg-gray-900/80 dark:bg-white/10 border border-gray-700 dark:border-gray-600 rounded-full text-gray-200 dark:text-gray-300 text-sm sm:text-base backdrop-blur-sm hover:bg-gray-800 dark:hover:bg-white/20 transition-all duration-300 cursor-default">
-                Clean Code
-              </span>
-              <span className="px-3 sm:px-4 py-1 sm:py-2 bg-gray-900/80 dark:bg-white/10 border border-gray-700 dark:border-gray-600 rounded-full text-gray-200 dark:text-gray-300 text-sm sm:text-base backdrop-blur-sm hover:bg-gray-800 dark:hover:bg-white/20 transition-all duration-300 cursor-default">
-                Exploring Machine Learning
-              </span>
-            </div>
-
-            <p className="text-gray-600 dark:text-gray-300 text-base sm:text-lg lg:text-xl max-w-lg leading-relaxed">
-              JavaScript lover 🖋️ | Crafting frameworks and coding the future ✨
-            </p>
-
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mt-4 sm:mt-6 w-full sm:w-auto">
-              <Glow_button/>
-            </div>
-          </div>
-
-          {/* Right Column: Code Editor */}
-          <div className="order-1 lg:order-2 animate-fade-in-up">
-             <ThreeDCarousel/>
-          </div>
-        </div>
-
-       
-      </div>
-
-      
-
-      {/* Scoped animation styles — no manual document.head manipulation */}
-      <style jsx global>{`
-        @keyframes fade-in-up {
-          from {
-            opacity: 0;
-            transform: translateY(30px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-        .animate-fade-in-up {
-          animation: fade-in-up 0.6s ease-out forwards;
-        }
-      `}</style>
-    </div>
-    
-  );
-  
-};
-
-
-
-export default Hero;
+  return <HeroSection />;
+}
