@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { useTheme } from 'next-themes';
 import Avatar from '@mui/material/Avatar';
 import Stack from '@mui/material/Stack';
+import { Download } from "lucide-react";
 
 // Icons from lucide-react, commonly used with shadcn/ui
 const MenuIcon = ({ className }: { className?: string }) => (
@@ -93,10 +94,14 @@ const Navbar = () => {
 
   // Navigation links data
   const navLinks = [
-    { href: "#", label: "Features" },
-    { href: "#", label: "Pricing" },
-    { href: "#", label: "About" },
-    { href: "#", label: "Contact" },
+    { href: "#", label: "Home" },
+    { href: "#about", label: "About" },
+    { href: "#skills", label: "Skills" },
+    { href: "#projects", label: "Projects" },
+    { href: "#experiance", label: "Experiance" },
+    { href: "#certifications", label: "Certifications" },
+    { href: "#contact", label: "Contact" },
+
   ];
 
   const toggleTheme = () => {
@@ -106,7 +111,7 @@ const Navbar = () => {
   return (
     <header className="bg-white/80 dark:bg-black/80 backdrop-blur-sm sticky top-0 z-50 w-full border-b border-gray-200 dark:border-gray-700">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-20">
           
           {/* Logo Section */}
           <div className="flex-shrink-0">
@@ -124,7 +129,7 @@ const Navbar = () => {
               <a 
                 key={link.label} 
                 href={link.href} 
-                className="text-sm font-medium text-gray-500 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors duration-300"
+                className="text-lg font-medium text-gray-500 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors duration-300"
               >
                 {link.label}
               </a>
@@ -134,8 +139,10 @@ const Navbar = () => {
           {/* CTA Button, Theme Toggle and Mobile Menu Toggle */}
           <div className="flex items-center gap-4">
              <a href="#" className="hidden sm:inline-flex items-center justify-center rounded-md text-sm font-medium h-10 px-4 py-2 bg-gray-900 dark:bg-white text-white dark:text-gray-900 hover:bg-gray-800 dark:hover:bg-gray-100 transition-colors duration-300">
-                Get Started
+                <Download className="h-4 w-4 mr-2" strokeWidth={3} />
+                Resume
              </a>
+    
 
             {/* Theme Toggle Button */}
             <button

@@ -3,6 +3,9 @@ import Hero from "@/components/sections/Hero";
 import Hero2 from "@/components/sections/Hero2";
 import Skills from "@/components/sections/Skills";
 import GridBackgroundView from "@/components/ui/GridBackgroundView";
+import GlowLine from "@/components/ui/GlowLine";
+import About from "@/components/sections/About";
+import Experiance from "@/components/sections/Experiance";
 
 export default function Home() {
   return (
@@ -10,9 +13,11 @@ export default function Home() {
      overflow-hidden mx-auto sm:px-10 px-5" >
       <div className="w-full">
         <Navbar/>
-        {/* <Hero2/> */}
         <GridBackgroundView/>
+        <About/>
+        <GlowLine orientation="horizontal" position="top" color="blue" />
         <Skills/>
+        <Experiance/>
       </div>
     </main>
   );
