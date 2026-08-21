@@ -6,6 +6,7 @@ import GridBackgroundView from "@/components/ui/GridBackgroundView";
 import GlowLine from "@/components/ui/GlowLine";
 import About from "@/components/sections/About";
 import Experiance from "@/components/sections/Experiance";
+import Skills2 from "@/components/ui/Marquee";
 
 export default function Home() {
   return (
@@ -17,6 +18,7 @@ export default function Home() {
         <About/>
         <GlowLine orientation="horizontal" position="top" color="blue" />
         <Skills/>
+        <Skills2>{null}</Skills2>
         <Experiance/>
       </div>
     </main>

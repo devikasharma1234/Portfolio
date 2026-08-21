@@ -36,7 +36,7 @@ const HeroSection: React.FC = () => {
 
         {/* Text Content */}
         <h1 className="text-4xl md:text-4xl text-black dark:text-white leading-tight">
-          Hi there! I&apos;m <span className="font-bold text-purple-500">Devika Sharma</span></h1>
+          Hi there! I&apos;m <span className="font-bold text-[#7B61FF]">Devika Sharma</span></h1>
           <div className="text-3xl font-bold p-3">
             <FlipWords
               words={["A full-stack developer, always building",
