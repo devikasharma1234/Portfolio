@@ -1,349 +1,225 @@
 "use client";
 
-import React, { memo, useCallback, useState } from "react";
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Briefcase, Calendar, ChevronDown, Code, Palette, Rocket, CheckCircle2, MapPin } from "lucide-react";
 
-// Helper components with refined icons
-const ChevronDown = (props: React.SVGProps<SVGSVGElement>) => (
-  <svg
-    {...props}
-    xmlns="http://www.w3.org/2000/svg"
-    width="24"
-    height="24"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-  >
-    <path d="m6 9 6 6 6-6" />
-  </svg>
-);
-
-const Code = (props: React.SVGProps<SVGSVGElement>) => (
-  <svg
-    {...props}
-    xmlns="http://www.w3.org/2000/svg"
-    width="24"
-    height="24"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-  >
-    <path d="m16 18 6-6-6-6" />
-    <path d="m8 6-6 6 6 6" />
-  </svg>
-);
-const Palette = (props: React.SVGProps<SVGSVGElement>) => (
-  <svg
-    {...props}
-    xmlns="http://www.w3.org/2000/svg"
-    width="24"
-    height="24"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-  >
-    <circle cx="13.5" cy="6.5" r=".5" fill="currentColor" />
-    <circle cx="17.5" cy="10.5" r=".5" fill="currentColor" />
-    <circle cx="8.5" cy="7.5" r=".5" fill="currentColor" />
-    <circle cx="6.5" cy="12.5" r=".5" fill="currentColor" />
-    <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z" />
-  </svg>
-);
-
-// Shadcn-style Badge component
-const Badge = ({
-  children,
-  className = "",
-  variant = "default",
-  ...props
-}: React.HTMLAttributes<HTMLSpanElement> & {
-  variant?: "default" | "secondary" | "outline";
-}) => {
-  const variants = {
-    default:
-      "bg-slate-900 text-slate-50 hover:bg-slate-900/90 dark:bg-slate-50 dark:text-slate-900 dark:hover:bg-slate-50/90",
-    secondary:
-      "bg-slate-100 text-slate-900 hover:bg-slate-100/80 dark:bg-slate-800 dark:text-slate-50 dark:hover:bg-slate-800/80",
-    outline:
-      "border border-slate-200 bg-transparent hover:bg-slate-100 dark:border-slate-800 dark:hover:bg-slate-800",
-  };
-
-  return (
-    <span
-      className={`inline-flex items-center rounded-md px-2.5 py-0.5 text-xs font-semibold transition-colors ${variants[variant]} ${className}`}
-      {...props}
-    >
-      {children}
-    </span>
-  );
-};
-
-// --- TYPES ---
-type IconType = React.ComponentType<React.SVGProps<SVGSVGElement>>;
-
-interface TimelineItemData {
+interface ExperienceItem {
   id: string;
   title: string;
+  company: string;
+  location: string;
   type: string;
   duration: string;
-  icon: IconType;
+  icon: React.ComponentType<{ className?: string }>;
+  iconBg: string;
+  description: string;
   responsibilities: string[];
   skills: string[];
 }
 
-type ExpandMode = "multi" | "single";
-
-interface ProfessionalTimelineProps {
-  data: TimelineItemData[];
-  defaultExpandedIds?: string[];
-  expandMode?: ExpandMode;
-}
-
-// --- MOCK DATA ---
-const timelineData: TimelineItemData[] = [
+const experienceData: ExperienceItem[] = [
   {
-    id: "prof-exp-1",
-    title: "Frontend Developer",
+    id: "exp-1",
+    title: "Frontend Developer Intern",
+    company: "Tech Innovation Labs",
+    location: "Remote / Hybrid",
     type: "Internship",
-    duration: "07.2026—Present",
+    duration: "07.2024 — Present",
     icon: Code,
+    iconBg: "from-[#7B61FF] to-indigo-600",
+    description:
+      "Leading frontend feature development for high-traffic web applications using Next.js 14+, TypeScript, and Tailwind CSS. Focus on performance optimization and modular component design.",
     responsibilities: [
-      "Lead development of complex React & Next.js applications with TypeScript.",
-      "Architect scalable frontend solutions using Next.js and modern tooling.",
-      "Mentor junior developers and conduct code reviews.",
-      "Collaborate with design and backend teams to deliver high-quality products.",
+      "Architected scalable, reusable UI component libraries with TypeScript and Tailwind CSS.",
+      "Optimized Core Web Vitals, reducing initial load time by 35% through lazy loading & dynamic imports.",
+      "Collaborated with UX designers and backend engineers to integrate RESTful APIs & WebSocket streams.",
+      "Participated in code reviews and agile sprints to deliver production features on schedule.",
     ],
-    skills: ["React", "TypeScript", "Next.js", "Tailwind CSS"],
+    skills: ["React.js", "Next.js", "TypeScript", "Tailwind CSS", "REST APIs", "Git"],
   },
   {
-    id: "prof-exp-2",
-    title: "Tech and Media Lead",
-    type: "Full-time",
-    duration: "02.2025—04.2026",
+    id: "exp-2",
+    title: "Tech & Media Lead",
+    company: "University Student Organization",
+    location: "Kurukshetra, India",
+    type: "Leadership / Core Lead",
+    duration: "02.2023 — 04.2024",
     icon: Palette,
+    iconBg: "from-pink-500 to-rose-600",
+    description:
+      "Spearheaded digital presence, web development projects, and visual branding across major technical events and hackathons.",
     responsibilities: [
-      "Ensure UI/UX consistency and high-quality standards.",
-      "Design intuitive, user-focused interfaces aligned with business goals.",
-      "Define and establish a cohesive UI style for the company.",
+      "Directed UI/UX design standards and branding guidelines across departmental web portals.",
+      "Designed and launched responsive event landing pages for 1,000+ registered attendees.",
+      "Mentored junior developers in Git workflows, responsive layout math, and frontend fundamentals.",
+      "Organized coding competitions, tech talks, and web development workshops.",
     ],
-    skills: ["Creativity", "UI/UX Design", "Clean Code"],
+    skills: ["UI/UX Design", "Figma", "Web Architecture", "Leadership", "Event Management"],
   },
   {
-    id: "prof-exp-3",
-    title: "Freelancing",
-    type: "Part-time",
-    duration: "03.2025—04.2025",
-    icon: Code,
+    id: "exp-3",
+    title: "Freelance Full-Stack Developer",
+    company: "Self-Employed",
+    location: "Remote",
+    type: "Freelance",
+    duration: "03.2023 — Present",
+    icon: Rocket,
+    iconBg: "from-cyan-500 to-blue-600",
+    description:
+      "Building tailored full-stack solutions, custom marketplaces, and interactive platforms for clients.",
     responsibilities: [
-      "Developed responsive web applications using React and Vue.js.",
-      "Implemented pixel-perfect designs from Figma mockups.",
-      "Optimized application performance and user experience.",
-      "Collaborated in an agile development environment.",
+      "Delivered production-ready MERN & Next.js applications from wireframes to cloud deployment.",
+      "Implemented secure JWT authentication, Role-Based Access Control (RBAC), and Razorpay payment gateways.",
+      "Built MongoDB & PostgreSQL database schemas with optimized query performance.",
+      "Integrated Cloudinary for automated media storage and processing.",
     ],
-    skills: ["React", "Vue.js", "JavaScript", "CSS", "HTML"],
+    skills: ["Node.js", "Express.js", "MongoDB", "Razorpay API", "Cloudinary", "Docker"],
   },
 ];
 
-// --- COMPONENTS ---
-interface TimelineItemContentProps {
-  item: TimelineItemData;
-}
+export default function Experiance() {
+  const [expandedId, setExpandedId] = useState<string | null>("exp-1");
 
-const TimelineItemContent = memo(function TimelineItemContent({
-  item,
-}: TimelineItemContentProps) {
-  return (
-    <div className="mt-6 space-y-6 animate-in slide-in-from-top-1 duration-200">
-      {/* Responsibilities */}
-      <div className="space-y-3">
-        {item.responsibilities.map((responsibility, idx) => (
-          <div
-            key={`${item.id}-resp-${idx}`}
-            className="flex items-start gap-3 group"
-          >
-            <div className="w-1.5 h-1.5 bg-slate-400 rounded-full mt-2 shrink-0 group-hover:bg-slate-600 dark:bg-slate-500 dark:group-hover:bg-slate-400 transition-colors duration-200" />
-            <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-              {responsibility}
-            </p>
-          </div>
-        ))}
-      </div>
-
-      {/* Skills */}
-      <div className="flex flex-wrap gap-2 pt-2 border-t border-slate-200 dark:border-slate-800">
-        {item.skills.map((skill, skillIdx) => (
-          <Badge key={`${item.id}-skill-${skillIdx}`} variant="secondary">
-            {skill}
-          </Badge>
-        ))}
-      </div>
-    </div>
-  );
-});
-TimelineItemContent.displayName = "TimelineItemContent";
-
-interface TimelineItemProps {
-  item: TimelineItemData;
-  expanded: boolean;
-  onToggle: (id: string) => void;
-  index: number;
-}
-
-const TimelineItem = memo(function TimelineItem({
-  item,
-  expanded,
-  onToggle,
-}: TimelineItemProps) {
-  const Icon = item.icon;
-  const headerId = `timeline-header-${item.id}`;
-  const contentId = `timeline-content-${item.id}`;
+  const toggleExpand = (id: string) => {
+    setExpandedId((prev) => (prev === id ? null : id));
+  };
 
   return (
-    <div className="relative group">
-      {/* Connecting line with gradient - now always visible */}
-      <div className="absolute left-6 top-14 bottom-0 w-[2px] bg-linear-to-b from-black via-gray-500 to-white dark:from-white dark:via-gray-400 dark:to-black" />
+    <section
+      id="experience"
+      className="relative bg-white/80 dark:bg-[#070712] py-20 px-4 sm:px-6 lg:px-8 font-sans rounded-3xl border border-slate-200/80 dark:border-slate-800/60 shadow-xl dark:shadow-none transition-colors duration-300 overflow-hidden"
+    >
+      {/* Glow Effects */}
+      <div className="absolute top-1/4 -right-20 w-96 h-96 bg-[#7B61FF]/10 dark:bg-[#7B61FF]/15 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-10 -left-20 w-96 h-96 bg-pink-500/10 dark:bg-pink-600/15 rounded-full blur-[120px] pointer-events-none" />
 
-      {/* Timeline node */}
-      <div className="absolute left-4 top-6 w-4 h-4 bg-white dark:bg-slate-950 border-2 border-slate-300 dark:border-slate-700 rounded-full flex items-center justify-center transform transition-all duration-200 z-10">
-        <div className="w-2 h-2 bg-slate-900 dark:bg-slate-50 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
-      </div>
-
-      {/* Main content card */}
-      <div className="ml-12 mb-8">
-        <div
-          className={`
-          bg-white dark:bg-slate-950 
-          rounded-lg border border-slate-200 dark:border-slate-800 
-          transition-all duration-200
-          ${expanded ? "shadow-sm" : "shadow-none hover:shadow-sm"}
-        `}
+      <div className="max-w-5xl mx-auto w-full relative z-10">
+        {/* Header Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="text-center mb-16"
         >
-          {/* Header */}
-          <button
-            id={headerId}
-            className="w-full text-left p-6 group/button cursor-pointer hover:bg-slate-50/50 dark:hover:bg-slate-900/50 transition-colors duration-200 rounded-t-lg"
-            onClick={() => onToggle(item.id)}
-            aria-expanded={expanded}
-            aria-controls={contentId}
-          >
-            <div className="flex items-start justify-between gap-4">
-              <div className="space-y-2 flex-1">
-                <div className="flex items-center gap-3">
-                  <div className="p-2 bg-slate-100 dark:bg-slate-900 rounded-md">
-                    <Icon className="w-4 h-4 text-slate-600 dark:text-slate-400" />
-                  </div>
-                  <h3 className="text-base font-semibold text-slate-900 dark:text-slate-50">
-                    {item.title}
-                  </h3>
-                </div>
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-purple-500/10 border border-purple-500/20 text-[#7B61FF] text-sm font-semibold mb-4">
+            <Briefcase className="w-4 h-4" /> Career Journey
+          </div>
+          <h2 className="text-4xl sm:text-5xl font-bold text-slate-900 dark:text-white tracking-wide mb-4">
+            Professional <span className="text-[#7B61FF]">Experience</span>
+          </h2>
+          <p className="text-slate-600 dark:text-gray-300 text-lg max-w-2xl mx-auto leading-relaxed">
+            My journey through software engineering internships, technical leadership, and freelance development.
+          </p>
+        </motion.div>
 
-                <div className="flex items-center gap-3 ml-11">
-                  <Badge variant="outline" className="text-xs">
-                    {item.type}
-                  </Badge>
-                  <span className="text-xs text-slate-500 dark:text-slate-400">
-                    {item.duration}
-                  </span>
-                </div>
-              </div>
+        {/* Experience Accordion / Cards List */}
+        <div className="space-y-6">
+          {experienceData.map((exp, index) => {
+            const Icon = exp.icon;
+            const isExpanded = expandedId === exp.id;
 
-              <div
-                className={`
-                text-slate-400 dark:text-slate-600 
-                transition-transform duration-200
-                ${expanded ? "rotate-180" : ""}
-              `}
+            return (
+              <motion.div
+                key={exp.id}
+                initial={{ opacity: 0, y: 25 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: index * 0.12 }}
+                className="bg-slate-50 dark:bg-[#12131C] border border-slate-200 dark:border-gray-800 rounded-2xl shadow-sm dark:shadow-2xl overflow-hidden hover:border-[#7B61FF]/40 dark:hover:border-[#7B61FF]/30 transition-all duration-300"
               >
-                <ChevronDown className="w-4 h-4" />
-              </div>
-            </div>
-          </button>
+                {/* Header Row */}
+                <div
+                  onClick={() => toggleExpand(exp.id)}
+                  className="p-6 cursor-pointer flex flex-col sm:flex-row sm:items-center justify-between gap-4 select-none hover:bg-slate-100/50 dark:hover:bg-gray-800/30 transition-colors"
+                >
+                  <div className="flex items-start sm:items-center gap-4">
+                    <div
+                      className={`w-12 h-12 rounded-xl bg-gradient-to-br ${exp.iconBg} flex items-center justify-center text-white shadow-md shrink-0`}
+                    >
+                      <Icon className="w-6 h-6" />
+                    </div>
 
-          {/* Expandable content */}
-          {expanded && (
-            <div
-              id={contentId}
-              role="region"
-              aria-labelledby={headerId}
-              className="px-6 pb-6 border-t border-slate-100 dark:border-slate-900"
-            >
-              <TimelineItemContent item={item} />
-            </div>
-          )}
+                    <div>
+                      <h3 className="text-xl font-bold text-slate-900 dark:text-white hover:text-[#7B61FF] transition-colors">
+                        {exp.title}
+                      </h3>
+                      <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-slate-500 dark:text-gray-400 mt-1">
+                        <span className="font-semibold text-slate-800 dark:text-gray-200">
+                          {exp.company}
+                        </span>
+                        <span>•</span>
+                        <span className="flex items-center gap-1">
+                          <MapPin className="w-3 h-3 text-[#7B61FF]" /> {exp.location}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center justify-between sm:justify-end gap-3 shrink-0">
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-purple-50 dark:bg-purple-950/60 text-[#7B61FF] border border-purple-200 dark:border-purple-800/50">
+                      <Calendar className="w-3.5 h-3.5" /> {exp.duration}
+                    </span>
+
+                    <div
+                      className={`w-8 h-8 rounded-full bg-slate-200/70 dark:bg-gray-800 flex items-center justify-center text-slate-600 dark:text-gray-300 transition-transform duration-300 ${
+                        isExpanded ? "rotate-180 bg-[#7B61FF] text-white" : ""
+                      }`}
+                    >
+                      <ChevronDown className="w-4 h-4" />
+                    </div>
+                  </div>
+                </div>
+
+                {/* Collapsible Content */}
+                <AnimatePresence>
+                  {isExpanded && (
+                    <motion.div
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: "auto" }}
+                      exit={{ opacity: 0, height: 0 }}
+                      transition={{ duration: 0.3 }}
+                      className="px-6 pb-6 pt-2 border-t border-slate-200/80 dark:border-gray-800/80"
+                    >
+                      <p className="text-slate-600 dark:text-gray-300 text-sm sm:text-base leading-relaxed mb-4">
+                        {exp.description}
+                      </p>
+
+                      {/* Key Responsibilities */}
+                      <div className="mb-5">
+                        <h4 className="text-xs uppercase tracking-wider text-slate-500 dark:text-gray-400 font-semibold mb-3">
+                          Key Contributions & Impact
+                        </h4>
+                        <ul className="space-y-2">
+                          {exp.responsibilities.map((resp, i) => (
+                            <li key={i} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-700 dark:text-gray-300">
+                              <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />
+                              <span>{resp}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+
+                      {/* Tech Stack Pills */}
+                      <div className="flex flex-wrap gap-2 pt-3 border-t border-slate-200/60 dark:border-gray-800/60">
+                        {exp.skills.map((skill, i) => (
+                          <span
+                            key={i}
+                            className="px-3 py-1 rounded-lg text-xs font-semibold bg-white dark:bg-black/60 text-[#7B61FF] border border-purple-200 dark:border-purple-900/50"
+                          >
+                            {skill}
+                          </span>
+                        ))}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
-    </div>
-  );
-});
-TimelineItem.displayName = "TimelineItem";
-
-// --- MAIN TIMELINE ---
-export function ProfessionalTimeline({
-  data,
-  defaultExpandedIds,
-  expandMode = "multi",
-}: ProfessionalTimelineProps) {
-  const initial = defaultExpandedIds ?? data.map((item) => item.id);
-  const [expanded, setExpanded] = useState<Set<string>>(() => new Set(initial));
-
-  const onToggle = useCallback(
-    (id: string) => {
-      setExpanded((prev) => {
-        const next = new Set(prev);
-        if (expandMode === "single") {
-          return prev.has(id) ? new Set() : new Set([id]);
-        }
-        if (next.has(id)) {
-          next.delete(id);
-        } else {
-          next.add(id);
-        }
-        return next;
-      });
-    },
-    [expandMode]
-  );
-
-  return (
-    <div className="relative">
-      {data.map((item, index) => (
-        <TimelineItem
-          key={item.id}
-          item={item}
-          expanded={expanded.has(item.id)}
-          onToggle={onToggle}
-          index={index}
-        />
-      ))}
-    </div>
-  );
-}
-
-// --- APP ENTRY POINT ---
-export default function Experiance() {
-  return (
-    <div className="transition-colors duration-300">
-      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <header className="mb-12">
-          <h1 className="text-3xl font-bold tracking-tight text-slate-900 dark:text-slate-50 mb-3">
-            Professional Experience
-          </h1>
-          <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
-            A comprehensive overview of my career journey and professional
-            achievements.
-          </p>
-        </header>
-
-        <ProfessionalTimeline data={timelineData} expandMode="multi" />
-      </div>
-    </div>
+    </section>
   );
 }

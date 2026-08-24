@@ -29,8 +29,8 @@ const GridBackground = () => {
       className="absolute inset-0 w-full h-full overflow-hidden transition-transform duration-300 ease-out"
       style={{
         backgroundImage: `
-          linear-gradient(to right, rgba(255, 255, 255, 0.08) 1px, transparent 1px),
-          linear-gradient(to bottom, rgba(255, 255, 255, 0.08) 1px, transparent 1px)
+          linear-gradient(to right, rgba(120, 119, 198, 0.15) 1px, transparent 1px),
+          linear-gradient(to bottom, rgba(120, 119, 198, 0.15) 1px, transparent 1px)
         `,
         backgroundSize: "40px 40px",
         animation: "moveGrid 20s linear infinite",
@@ -39,7 +39,7 @@ const GridBackground = () => {
       }}
     >
       {/* Glow effect */}
-      <div className="absolute top-1/2 left-1/2 w-[60vmin] h-[60vmin] bg-cyan-500/20 rounded-full blur-[150px] -translate-x-1/2 -translate-y-1/2" />
+      <div className="absolute top-1/2 left-1/2 w-[60vmin] h-[60vmin] bg-blue-400/20 dark:bg-cyan-500/20 rounded-full blur-[150px] -translate-x-1/2 -translate-y-1/2" />
       {/* Keyframes for the animation */}
       <style>
         {`
@@ -56,9 +56,9 @@ const GridBackground = () => {
 // Main App Component
 export default function GridBackgroundView() {
   return (
-    <div className="relative w-full h-screen bg-slate-950 overflow-hidden">
+    <div className="relative w-full min-h-[calc(100vh-6rem)] bg-white/80 dark:bg-slate-950 border border-slate-200/80 dark:border-slate-800/60 shadow-xl dark:shadow-none overflow-hidden rounded-3xl transition-colors duration-300">
       <GridBackground />
-      <div className="relative z-10 flex items-center justify-center h-full">
+      <div className="relative z-10 flex items-center justify-center h-full py-12 sm:py-16">
         <div className="text-center px-4">
           <Hero/>
         </div>
