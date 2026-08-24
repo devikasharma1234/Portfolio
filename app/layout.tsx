@@ -22,7 +22,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning className={cn("font-sans", geist.variable)}>
-      <body className={cn(inter.className, "bg-white text-gray-900 dark:bg-black dark:text-white transition-colors duration-300")}>
+      <body suppressHydrationWarning className={cn(inter.className, "bg-white text-gray-900 dark:bg-black dark:text-white transition-colors duration-300")}>
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"

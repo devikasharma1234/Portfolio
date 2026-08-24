@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, MapPin, Copy, Check, Sparkles, ExternalLink, Globe, Briefcase } from "lucide-react";
+import { Mail, Copy, Check, Sparkles, ExternalLink } from "lucide-react";
 import { FaLinkedin, FaGithub } from "react-icons/fa6";
 import { SiLeetcode } from "react-icons/si";
 
@@ -161,7 +161,7 @@ export default function Contact() {
             </div>
           </motion.div>
 
-          {/* Card 2: Location & Mobility */}
+          {/* Card 2: Connect Across Professional & Coding Platforms */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -170,74 +170,41 @@ export default function Contact() {
             className="bg-slate-50 dark:bg-[#12131C] border border-slate-200 dark:border-gray-800 rounded-2xl p-6 shadow-sm dark:shadow-xl flex flex-col justify-between hover:border-blue-500/40 transition-all duration-300"
           >
             <div>
-              <div className="flex items-center gap-4 mb-4">
-                <div className="w-12 h-12 rounded-xl bg-blue-500/10 text-blue-500 flex items-center justify-center shrink-0">
-                  <MapPin className="w-6 h-6" />
-                </div>
-                <div>
-                  <h3 className="text-xs uppercase tracking-wider text-slate-500 dark:text-gray-400 font-semibold">
-                    Location & Mobility
-                  </h3>
-                  <p className="text-base sm:text-lg font-bold text-slate-900 dark:text-white">
-                    Kurukshetra / Haryana, India
-                  </p>
-                </div>
-              </div>
+              <h3 className="text-xs uppercase tracking-wider text-slate-500 dark:text-gray-400 font-semibold mb-4">
+                Connect Across Professional & Coding Platforms
+              </h3>
 
-              <p className="text-xs text-slate-600 dark:text-gray-400 leading-relaxed mb-6">
-                Based in India with reliable high-speed infrastructure for global remote collaboration and onsite flexibility.
-              </p>
-            </div>
-
-            <div className="flex flex-wrap gap-2 pt-4 border-t border-slate-200 dark:border-gray-800">
-              <span className="px-3 py-1 rounded-lg text-xs font-semibold bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 flex items-center gap-1">
-                <Globe className="w-3.5 h-3.5" /> Remote Work Ready
-              </span>
-              <span className="px-3 py-1 rounded-lg text-xs font-semibold bg-blue-500/10 text-blue-600 dark:text-blue-400 border border-blue-500/20 flex items-center gap-1">
-                <Briefcase className="w-3.5 h-3.5" /> Onsite / Hybrid Open
-              </span>
-            </div>
-          </motion.div>
-
-          {/* Card 3: Social & Coding Platforms (Spans 2 cols on md+) */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.4, delay: 0.3 }}
-            className="md:col-span-2 bg-slate-50 dark:bg-[#12131C] border border-slate-200 dark:border-gray-800 rounded-2xl p-6 shadow-sm dark:shadow-xl"
-          >
-            <h3 className="text-xs uppercase tracking-wider text-slate-500 dark:text-gray-400 font-semibold mb-4">
-              Connect Across Professional & Coding Platforms
-            </h3>
-
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-              {socialLinks.map((social) => {
-                const Icon = social.icon;
-                return (
-                  <a
-                    key={social.name}
-                    href={social.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`flex items-center gap-3.5 p-4 rounded-xl bg-white dark:bg-black/60 border border-slate-200 dark:border-gray-800 ${social.borderColor} transition-all duration-300 group shadow-sm hover:shadow-md`}
-                  >
-                    <div
-                      className={`w-10 h-10 rounded-lg ${social.bgColor} flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform`}
+              <div className="flex flex-col gap-3">
+                {socialLinks.map((social) => {
+                  const Icon = social.icon;
+                  return (
+                    <a
+                      key={social.name}
+                      href={social.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`flex items-center gap-3.5 p-3.5 rounded-xl bg-white dark:bg-black/60 border border-slate-200 dark:border-gray-800 ${social.borderColor} transition-all duration-300 group shadow-sm hover:shadow-md`}
                     >
-                      <Icon className={`w-5 h-5 ${social.color}`} />
-                    </div>
-                    <div className="overflow-hidden">
-                      <div className="flex items-center gap-1 text-sm font-bold text-slate-900 dark:text-white group-hover:text-[#7B61FF] transition-colors">
-                        {social.name} <ExternalLink className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
+                      <div
+                        className={`w-9 h-9 rounded-lg ${social.bgColor} flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform`}
+                      >
+                        <Icon className={`w-4 h-4 ${social.color}`} />
                       </div>
-                      <span className="text-xs text-slate-500 dark:text-gray-400 truncate block">
-                        @{social.handle}
-                      </span>
-                    </div>
-                  </a>
-                );
-              })}
+                      <div className="overflow-hidden flex-1 flex items-center justify-between">
+                        <div>
+                          <div className="flex items-center gap-1 text-sm font-bold text-slate-900 dark:text-white group-hover:text-[#7B61FF] transition-colors">
+                            {social.name}
+                          </div>
+                          <span className="text-xs text-slate-500 dark:text-gray-400 truncate block">
+                            @{social.handle}
+                          </span>
+                        </div>
+                        <ExternalLink className="w-4 h-4 text-slate-400 opacity-60 group-hover:opacity-100 group-hover:text-[#7B61FF] group-hover:translate-x-0.5 transition-all" />
+                      </div>
+                    </a>
+                  );
+                })}
+              </div>
             </div>
           </motion.div>
         </div>

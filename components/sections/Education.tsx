@@ -27,7 +27,7 @@ const educationData: EducationItem[] = [
     location: "Kurukshetra, Haryana, India",
     duration: "2023 — 2027",
     grade: "8.0 CGPA",
-    gradeLabel: "JEE Main 2023: 90.2 %ile",
+    gradeLabel: "JEE Main 2023: 88.95 %ile",
     description:
       "Specializing in Software Engineering, Full-Stack Architecture, and Machine Learning. Actively engaged in technical leadership, competitive programming, and building real-world projects.",
     courses: [
