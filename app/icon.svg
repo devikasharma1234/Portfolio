@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2563eb" />
+      <stop offset="100%" stop-color="#7B61FF" />
+    </linearGradient>
+    <linearGradient id="textGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="100%" stop-color="#F8FAFC" />
+    </linearGradient>
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="16" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+  
+  <!-- Background Rounded Container -->
+  <rect x="32" y="32" width="448" height="448" rx="112" fill="url(#bgGrad)" />
+  
+  <!-- Outer Subtle Ring -->
+  <rect x="32" y="32" width="448" height="448" rx="112" fill="none" stroke="#FFFFFF" stroke-opacity="0.2" stroke-width="8" />
+
+  <!-- Monogram D -->
+  <text x="215" y="348" font-family="'Inter', system-ui, -apple-system, sans-serif" font-weight="900" font-size="270" fill="url(#textGrad)" text-anchor="middle">D</text>
+
+  <!-- Pink Accent Sparkle Glow -->
+  <circle cx="370" cy="165" r="36" fill="#FF66A1" filter="url(#glow)" opacity="0.9" />
+
+  <!-- Sparkle Star Icon -->
+  <path d="M370 125 C370 152 383 165 410 165 C383 165 370 178 370 205 C370 178 357 165 330 165 C357 165 370 152 370 125 Z" fill="#FFFFFF" />
+</svg>
