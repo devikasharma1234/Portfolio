@@ -52,7 +52,7 @@ export default function Navbar() {
     <header className="fixed top-4 left-0 right-0 z-50 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 transition-all duration-300">
       <div className="rounded-2xl backdrop-blur-xl bg-white/75 dark:bg-black/70 border border-slate-200/80 dark:border-white/10 shadow-lg dark:shadow-2xl px-4 sm:px-6 transition-colors duration-300">
         <div className="flex items-center justify-between h-16 sm:h-20">
-          
+
           {/* Logo Section */}
           <a href="#" className="flex items-center gap-3 group">
             <div className="relative flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-tr from-blue-600 to-[#7B61FF] text-white shadow-md group-hover:scale-105 group-hover:shadow-[0_0_20px_rgba(123,97,255,0.5)] transition-all duration-300">
@@ -71,11 +71,10 @@ export default function Navbar() {
                 <a
                   key={link.label}
                   href={link.href}
-                  className={`relative px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all duration-200 ${
-                    isActive
-                      ? "text-[#7B61FF] dark:text-white bg-white dark:bg-purple-950/70 shadow-sm"
-                      : "text-slate-700 dark:text-gray-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-200/50 dark:hover:bg-white/10"
-                  }`}
+                  className={`relative px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all duration-200 ${isActive
+                    ? "text-[#7B61FF] dark:text-white bg-white dark:bg-purple-950/70 shadow-sm"
+                    : "text-slate-700 dark:text-gray-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-200/50 dark:hover:bg-white/10"
+                    }`}
                 >
                   {link.label}
                 </a>
@@ -87,7 +86,7 @@ export default function Navbar() {
           <div className="flex items-center gap-3">
             {/* Resume Button */}
             <a
-              href="/resume.pdf"
+              href="https://drive.google.com/file/d/1sqTqCmp9o9__7t-vCQ7Hmqwok9EBiOoD/view?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
               className="hidden sm:inline-flex items-center justify-center gap-2 rounded-xl text-xs font-bold h-10 px-4 bg-gradient-to-r from-[#7B61FF] to-indigo-600 text-white shadow-md hover:shadow-lg hover:brightness-110 active:scale-95 transition-all duration-300"
@@ -154,7 +153,7 @@ export default function Navbar() {
               </div>
 
               <a
-                href="/resume.pdf"
+                href="https://drive.google.com/file/d/1sqTqCmp9o9__7t-vCQ7Hmqwok9EBiOoD/view?usp=sharing"
                 className="flex items-center justify-center gap-2 w-full mt-3 h-10 rounded-xl bg-gradient-to-r from-[#7B61FF] to-indigo-600 text-white text-xs font-bold shadow-md"
               >
                 <Download className="h-4 w-4" />
