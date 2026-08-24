@@ -22,12 +22,12 @@ interface EducationItem {
 const educationData: EducationItem[] = [
   {
     id: "edu-1",
-    degree: "Bachelor of Technology in Computer Science & Engineering",
+    degree: "Bachelor of Technology in CSE (AI/ML)",
     institution: "UIET, Kurukshetra University",
     location: "Kurukshetra, Haryana, India",
-    duration: "2022 — 2026",
-    grade: "7.0 CGPA",
-    gradeLabel: "JEE Main 2022: 93.2 %ile",
+    duration: "2023 — 2027",
+    grade: "8.0 CGPA",
+    gradeLabel: "JEE Main 2023: 90.2 %ile",
     description:
       "Specializing in Software Engineering, Full-Stack Architecture, and Machine Learning. Actively engaged in technical leadership, competitive programming, and building real-world projects.",
     courses: [
@@ -41,7 +41,7 @@ const educationData: EducationItem[] = [
     ],
     achievements: [
       "Active organizer for departmental tech fests and coding workshops.",
-      "Solved 650+ algorithmic problems across LeetCode & competitive platforms.",
+      "Solved 250+ algorithmic problems across LeetCode & competitive platforms.",
       "Built multiple production-ready full-stack & AI applications.",
     ],
     iconBg: "from-purple-500 to-indigo-600",
@@ -52,15 +52,15 @@ const educationData: EducationItem[] = [
     degree: "Senior Secondary Education (Class XII - CBSE)",
     institution: "Central Board of Secondary Education",
     location: "Haryana, India",
-    duration: "2020 — 2022",
-    grade: "92.4%",
+    duration: "2022 — 2023",
+    grade: "86.2%",
     gradeLabel: "Science Stream (PCM + CS)",
     description:
-      "Core focus on Physics, Chemistry, Mathematics, and Computer Science. Developed strong foundational logic, problem-solving skills, and Python programming.",
+      "Core focus on Physics, Chemistry, Mathematics, and Computer Science. Developed strong foundational logic and Python programming.",
     courses: ["Physics", "Chemistry", "Mathematics", "Computer Science (Python)", "English"],
     achievements: [
-      "School Topper in Computer Science with distinction.",
-      "Participated in State Science & Technology Exhibitions.",
+      "Top 5 in School in Computer Science with distinction.",
+      "Top 10 in Mathematics in School",
     ],
     iconBg: "from-pink-500 to-rose-600",
     accentColor: "#FF66A1",
@@ -70,15 +70,15 @@ const educationData: EducationItem[] = [
     degree: "Secondary School Certificate (Class X - CBSE)",
     institution: "Central Board of Secondary Education",
     location: "Haryana, India",
-    duration: "2019 — 2020",
-    grade: "94.6%",
+    duration: "2020 — 2021",
+    grade: "81.6%",
     gradeLabel: "Distinction in Science & Math",
     description:
       "Comprehensive secondary education with academic distinction across all core subjects, laying a solid analytical foundation.",
     courses: ["Mathematics", "Science", "Social Studies", "English", "Hindi"],
     achievements: [
       "Awarded Certificate of Merit for Outstanding Performance in Science.",
-      "Captain of School Mathematics & Quiz Team.",
+      "Attended Scoutes and Guides National-Level Camp at Shimla",
     ],
     iconBg: "from-cyan-500 to-blue-600",
     accentColor: "#00B4D8",
