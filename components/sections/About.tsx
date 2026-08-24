@@ -16,7 +16,7 @@ export default function About() {
       shadowColor: "shadow-[0_0_8px_#FF66A1]",
       items: [
         "Crafted responsive & dynamic UIs using React.js and Next.js App Router",
-        "Built interactive canvas rendering & vector graphics with Canvas API & Konva",
+        "Ensuring consistent functionality and appearance across modern browsers.",
         "Prioritized accessibility (a11y), core web vitals, & modular component architecture",
       ],
     },
@@ -29,9 +29,9 @@ export default function About() {
       bulletBg: "bg-[#00E676]",
       shadowColor: "shadow-[0_0_8px_#00E676]",
       items: [
-        "Solved 650+ algorithmic problems across LeetCode & competitive programming platforms",
-        "Strong foundation in Data Structures, Dynamic Programming, Graph Algorithms & OS",
-        "1000+ GitHub commits building production-grade software solutions",
+        "Solved 250+ algorithmic problems across LeetCode & competitive programming platforms",
+        "Strong foundation in Data Structures, Graph Algorithms, OOPs & OS",
+        "200+ GitHub commits building production-grade software solutions",
       ],
     },
     {
@@ -44,7 +44,7 @@ export default function About() {
       shadowColor: "shadow-[0_0_8px_#00B4D8]",
       items: [
         "Developed scalable RESTful APIs and microservices using Node.js & Express",
-        "Implemented real-time event streaming with WebSockets & Redis Pub/Sub architecture",
+        "Implemented real-time ticket management using WebSockets & Redis Pub/Sub architecture",
         "Containerized applications using Docker with PostgreSQL & MongoDB databases",
       ],
     },

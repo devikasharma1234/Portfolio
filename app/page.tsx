@@ -1,6 +1,5 @@
 import Navbar from "@/components/layout/Navbar";
 import Hero from "@/components/sections/Hero";
-import Hero2 from "@/components/sections/Hero2";
 import Skills from "@/components/sections/Skills";
 import GridBackgroundView from "@/components/ui/GridBackgroundView";
 import GlowLine from "@/components/ui/GlowLine";
@@ -10,7 +9,6 @@ import Education from "@/components/sections/Education";
 import Certifications from "@/components/sections/Certifications";
 import Contact from "@/components/sections/Contact";
 import Footer from "@/components/layout/Footer";
-import Skills2 from "@/components/ui/Marquee";
 import Projects from "@/components/sections/Projects";
 
 export default function Home() {

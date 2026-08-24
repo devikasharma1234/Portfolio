@@ -22,14 +22,14 @@ const experienceData: ExperienceItem[] = [
   {
     id: "exp-1",
     title: "Frontend Developer Intern",
-    company: "Tech Innovation Labs",
-    location: "Remote / Hybrid",
+    company: "Ornitech Solutions",
+    location: "Remote",
     type: "Internship",
-    duration: "07.2024 — Present",
+    duration: "July 2026 — Present",
     icon: Code,
     iconBg: "from-[#7B61FF] to-indigo-600",
     description:
-      "Leading frontend feature development for high-traffic web applications using Next.js 14+, TypeScript, and Tailwind CSS. Focus on performance optimization and modular component design.",
+      "Leading frontend feature development for ticket management web applications using Next.js 14+, TypeScript, and Tailwind CSS. Focus on performance optimization and modular component design.",
     responsibilities: [
       "Architected scalable, reusable UI component libraries with TypeScript and Tailwind CSS.",
       "Optimized Core Web Vitals, reducing initial load time by 35% through lazy loading & dynamic imports.",
@@ -41,10 +41,10 @@ const experienceData: ExperienceItem[] = [
   {
     id: "exp-2",
     title: "Tech & Media Lead",
-    company: "University Student Organization",
-    location: "Kurukshetra, India",
+    company: "Hail Jarvis, University Coding Club",
+    location: "UIET Kurukshetra, India",
     type: "Leadership / Core Lead",
-    duration: "02.2023 — 04.2024",
+    duration: "01.2025 — 04.2026",
     icon: Palette,
     iconBg: "from-pink-500 to-rose-600",
     description:
@@ -59,23 +59,31 @@ const experienceData: ExperienceItem[] = [
   },
   {
     id: "exp-3",
-    title: "Freelance Full-Stack Developer",
-    company: "Self-Employed",
+    title: "Freelancing Project",
+    company: "Yoga Startup",
     location: "Remote",
     type: "Freelance",
-    duration: "03.2023 — Present",
+    duration: "03.2025 — 05.2025",
     icon: Rocket,
     iconBg: "from-cyan-500 to-blue-600",
     description:
-      "Building tailored full-stack solutions, custom marketplaces, and interactive platforms for clients.",
+      "Developed and customized a professional WordPress website for a yoga startup, focusing on responsive design, performance, and an engaging user experience.",
     responsibilities: [
-      "Delivered production-ready MERN & Next.js applications from wireframes to cloud deployment.",
-      "Implemented secure JWT authentication, Role-Based Access Control (RBAC), and Razorpay payment gateways.",
-      "Built MongoDB & PostgreSQL database schemas with optimized query performance.",
-      "Integrated Cloudinary for automated media storage and processing.",
+      "Designed and developed a responsive WordPress website tailored to the startup's branding and business requirements.",
+      "Customized WordPress themes, layouts, and plugins to create a modern and user-friendly interface.",
+      "Integrated contact forms, service sections, social media, and other essential features for customer engagement.",
+      "Optimized website performance, SEO, responsiveness, and cross-browser compatibility for a better user experience.",
     ],
-    skills: ["Node.js", "Express.js", "MongoDB", "Razorpay API", "Cloudinary", "Docker"],
-  },
+    skills: [
+      "WordPress",
+      "PHP",
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "Elementor",
+      "SEO",
+    ],
+  }
 ];
 
 export default function Experiance() {
@@ -163,9 +171,8 @@ export default function Experiance() {
                     </span>
 
                     <div
-                      className={`w-8 h-8 rounded-full bg-slate-200/70 dark:bg-gray-800 flex items-center justify-center text-slate-600 dark:text-gray-300 transition-transform duration-300 ${
-                        isExpanded ? "rotate-180 bg-[#7B61FF] text-white" : ""
-                      }`}
+                      className={`w-8 h-8 rounded-full bg-slate-200/70 dark:bg-gray-800 flex items-center justify-center text-slate-600 dark:text-gray-300 transition-transform duration-300 ${isExpanded ? "rotate-180 bg-[#7B61FF] text-white" : ""
+                        }`}
                     >
                       <ChevronDown className="w-4 h-4" />
                     </div>

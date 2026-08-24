@@ -41,11 +41,11 @@ const projectsData: ProjectItem[] = [
   },
   {
     id: 3,
-    title: "WanderLust 2.0",
+    title: "VibeStay",
     category: "Full-Stack Rental System",
     description:
       "Scalable MERN-stack rental platform with seamless booking workflows, JWT authentication, and RBAC for guests and hosts. With integrated Razorpay for payments and Cloudinary for media storage, developing advanced search filters for real-time system monitoring.",
-    imageUrl: "https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=2560&auto=format&fit=crop",
+    imageUrl: "/images/projects/vibestay.png",
     tags: ["React", "Node.js", "Express", "MongoDB", "Razorpay", "Cloudinary"],
     liveUrl: "https://my-demo.com",
     githubUrl: "https://github.com/devikasharma1234/Wanderlust_2.0",
