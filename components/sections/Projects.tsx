@@ -47,7 +47,7 @@ const projectsData: ProjectItem[] = [
       "Scalable MERN-stack rental platform with seamless booking workflows, JWT authentication, and RBAC for guests and hosts. With integrated Razorpay for payments and Cloudinary for media storage, developing advanced search filters for real-time system monitoring.",
     imageUrl: "/images/projects/vibestay.png",
     tags: ["React", "Node.js", "Express", "MongoDB", "Razorpay", "Cloudinary"],
-    liveUrl: "https://my-demo.com",
+    liveUrl: "https://wanderlust-2-0-git-main-xdaas.vercel.app/",
     githubUrl: "https://github.com/devikasharma1234/Wanderlust_2.0",
   },
 ];
