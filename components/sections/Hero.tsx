@@ -43,7 +43,7 @@ export default function Hero() {
           {/* Profile Avatar Image */}
           <div className="relative w-36 h-36 sm:w-44 sm:h-44 rounded-full p-1 bg-slate-900 overflow-hidden shadow-2xl">
             <img
-              src="/images/profile/Profile_pic.png"
+              src="/images/profile/my_pic2.png"
               alt="Devika Sharma"
               className="w-full h-full rounded-full object-cover group-hover:scale-105 transition-transform duration-500"
             />
