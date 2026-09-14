@@ -23,9 +23,9 @@ const projectsData: ProjectItem[] = [
     category: "P2P Campus Marketplace",
     description:
       "UnityRent is a hyper-local, peer-to-peer (P2P) marketplace designed exclusively for university campuses and societies. It bridges the gap between students who have underutilized resources and those who need them for a short duration, turning hostel clutter into a passive income stream.",
-    imageUrl: "/images/projects/UnityRent.jpeg",
-    tags: ["Next.js", "React", "Node.js", "Express", "MongoDB", "Tailwind CSS"],
-    liveUrl: "https://my-demo.com",
+    imageUrl: "/images/projects/UnityRent.png",
+    tags: ["React", "Node.js", "Express", "MongoDB", "Tailwind CSS"],
+    liveUrl: "https://unity-rent.vercel.app/",
     githubUrl: "https://github.com/devikasharma1234/UnityRent.",
   },
   {
