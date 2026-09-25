@@ -65,24 +65,6 @@ const educationData: EducationItem[] = [
     iconBg: "from-pink-500 to-rose-600",
     accentColor: "#FF66A1",
   },
-  {
-    id: "edu-3",
-    degree: "Secondary School Certificate (Class X - CBSE)",
-    institution: "Central Board of Secondary Education",
-    location: "Haryana, India",
-    duration: "2020 — 2021",
-    grade: "81.6%",
-    gradeLabel: "Distinction in Science & Math",
-    description:
-      "Comprehensive secondary education with academic distinction across all core subjects, laying a solid analytical foundation.",
-    courses: ["Mathematics", "Science", "Social Studies", "English", "Hindi"],
-    achievements: [
-      "Awarded Certificate of Merit for Outstanding Performance in Science.",
-      "Attended Scoutes and Guides National-Level Camp at Shimla",
-    ],
-    iconBg: "from-cyan-500 to-blue-600",
-    accentColor: "#00B4D8",
-  },
 ];
 
 export default function Education() {

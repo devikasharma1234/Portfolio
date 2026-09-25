@@ -25,7 +25,7 @@ const experienceData: ExperienceItem[] = [
     company: "Ornitech Solutions",
     location: "Remote",
     type: "Internship",
-    duration: "July 2026 — Present",
+    duration: "July 2026 — Sept 2026",
     icon: Code,
     iconBg: "from-[#7B61FF] to-indigo-600",
     description:
