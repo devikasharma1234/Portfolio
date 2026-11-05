@@ -11,7 +11,6 @@ interface EducationItem {
   location: string;
   duration: string;
   grade: string;
-  gradeLabel: string;
   description: string;
   courses: string[];
   achievements: string[];
@@ -27,7 +26,6 @@ const educationData: EducationItem[] = [
     location: "Kurukshetra, Haryana, India",
     duration: "2023 — 2027",
     grade: "8.0 CGPA",
-    gradeLabel: "JEE Main 2023: 88.95 %ile",
     description:
       "Specializing in Software Engineering, Full-Stack Architecture, and Machine Learning. Actively engaged in technical leadership, competitive programming, and building real-world projects.",
     courses: [
@@ -54,7 +52,6 @@ const educationData: EducationItem[] = [
     location: "Haryana, India",
     duration: "2022 — 2023",
     grade: "86.2%",
-    gradeLabel: "Science Stream (PCM + CS)",
     description:
       "Core focus on Physics, Chemistry, Mathematics, and Computer Science. Developed strong foundational logic and Python programming.",
     courses: ["Physics", "Chemistry", "Mathematics", "Computer Science (Python)", "English"],
@@ -146,11 +143,7 @@ export default function Education() {
                         <span className="px-3 py-1 rounded-full text-xs font-bold bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
                           {edu.grade}
                         </span>
-                        {edu.gradeLabel && (
-                          <span className="hidden md:inline-block px-2.5 py-0.5 rounded-full text-[11px] font-medium bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-gray-300">
-                            {edu.gradeLabel}
-                          </span>
-                        )}
+
                       </div>
                     </div>
                   </div>
