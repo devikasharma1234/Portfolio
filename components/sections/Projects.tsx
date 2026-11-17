@@ -17,19 +17,8 @@ interface ProjectItem {
 }
 
 const projectsData: ProjectItem[] = [
-  {
-    id: 1,
-    title: "Unity Rent",
-    category: "P2P Campus Marketplace",
-    description:
-      "UnityRent is a hyper-local, peer-to-peer (P2P) marketplace designed exclusively for university campuses and societies. It bridges the gap between students who have underutilized resources and those who need them for a short duration, turning hostel clutter into a passive income stream.",
-    imageUrl: "/images/projects/UnityRent.png",
-    tags: ["React", "Node.js", "Express", "MongoDB", "Tailwind CSS"],
-    liveUrl: "https://unity-rent.vercel.app/",
-    githubUrl: "https://github.com/devikasharma1234/UnityRent.",
-  },
-  {
-  id: 2,
+   {
+  id: 1,
   title: "PlanBee",
   category: "AI Event Discovery & Recommendation Platform",
   description:
@@ -40,6 +29,18 @@ const projectsData: ProjectItem[] = [
   liveUrl: "https://ai-event-discovery-comparison-engine-cb5cmbnmf-xdaas.vercel.app/",
   githubUrl: "https://github.com/devikasharma1234/AI-Event-Discovery-Comparison-Engine",
 },
+  {
+    id: 2,
+    title: "Unity Rent",
+    category: "P2P Campus Marketplace",
+    description:
+      "UnityRent is a hyper-local, peer-to-peer (P2P) marketplace designed exclusively for university campuses and societies. It bridges the gap between students who have underutilized resources and those who need them for a short duration, turning hostel clutter into a passive income stream.",
+    imageUrl: "/images/projects/UnityRent.png",
+    tags: ["React", "Node.js", "Express", "MongoDB", "Tailwind CSS"],
+    liveUrl: "https://unity-rent.vercel.app/",
+    githubUrl: "https://github.com/devikasharma1234/UnityRent.",
+  },
+ 
   {
     id: 3,
     title: "VibeStay",
