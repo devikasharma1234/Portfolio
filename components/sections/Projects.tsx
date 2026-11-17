@@ -29,16 +29,17 @@ const projectsData: ProjectItem[] = [
     githubUrl: "https://github.com/devikasharma1234/UnityRent.",
   },
   {
-    id: 2,
-    title: "Jal Drishti 2.0",
-    category: "AI & Sustainability Platform",
-    description:
-      "AI-powered platform for Rooftop Rainwater Harvesting feasibility analysis — combining satellite rainfall data, geospatial mapping, and cost estimation to help households, farmers, and governments make smarter water conservation decisions.",
-    imageUrl: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=2560&auto=format&fit=crop",
-    tags: ["Next.js", "Python AI", "GeoJSON", "Recharts", "Tailwind CSS"],
-    liveUrl: "https://my-demo.com",
-    githubUrl: "https://github.com/devikasharma1234/Jal-Drishti-2.0",
-  },
+  id: 2,
+  title: "PlanBee",
+  category: "AI Event Discovery & Recommendation Platform",
+  description:
+    "Full-stack event discovery platform that turns natural-language requests into personalized recommendations. Users can discover live events by city, date, category, and group budget, compare ticket options, see why events rank highly, and open external booking links.",
+  imageUrl:
+    "https://raw.githubusercontent.com/devikasharma1234/AI-Event-Discovery-Comparison-Engine/main/frontend/public/assets/planbee-ticket-hero.webp",
+  tags: ["Next.js", "TypeScript", "Express.js", "MongoDB", "Gemini API", "SerpAPI", "Tailwind CSS"],
+  liveUrl: "https://ai-event-discovery-comparison-engine-cb5cmbnmf-xdaas.vercel.app/",
+  githubUrl: "https://github.com/devikasharma1234/AI-Event-Discovery-Comparison-Engine",
+},
   {
     id: 3,
     title: "VibeStay",
